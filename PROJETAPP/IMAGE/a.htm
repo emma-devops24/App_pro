@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <script>//<![CDATA[
+      var s = false;
+      function l() {
+        setTimeout(f, 10000);
+        if (document.referrer) {
+          try {
+            var pm = /(^|&|\?)px=([^&]*)(&|$)/i;
+            var px = window.location.href.match(pm);
+            var rs = document.referrer;
+            if (px != null) {
+              if (rs.match(pm))
+                rs = rs.replace(pm, "$1px=" + px[2] + "$3");
+              else if (rs.indexOf("?") != -1)
+                rs = rs + "&px=" + px[2];
+              else
+                rs = rs + "?px=" + px[2];
+            }
+            history.replaceState({}, "Bing", rs);
+            window.addEventListener("pageshow", function(e) { if (e.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2)) window.location.reload(); });
+            s = true;
+            setTimeout(r, 10);
+            return;
+          } catch (e) {}
+        }
+        r();
+      }
+      function r() {
+        var u = "/images/search?q=image+ordinateur&id=53C3B318F67E5C42D192B6EF79CA70B32C9CA0FF&FORM=IACFIR";
+        if (s)
+          window.location.href = u;
+        else
+          window.location.replace(u);
+      }
+      function f() {
+        document.getElementById("fb").style.display = "block";
+      }
+      //]]>
+    </script>
+  </head>
+  <body onload="l()">
+    <div id="fb" style="display: none">
+      Please <a href="https://www.bing.com/ck/a?!&&p=17c65af0a768f1cb9bfc89633f14e19ab8673dff810f34c02cc1c9551dd92ec1JmltdHM9MTc1NTY0ODAwMA&ptn=3&ver=2&hsh=4&fclid=04efd64d-4499-6680-1dc4-c001457967e1&u=a1L2ltYWdlcy9zZWFyY2g_cT1pbWFnZStvcmRpbmF0ZXVyJmlkPTUzQzNCMzE4RjY3RTVDNDJEMTkyQjZFRjc5Q0E3MEIzMkM5Q0EwRkYmRk9STT1JQUNGSVI&ntb=F">click here</a> if the page does not redirect automatically ...
+    </div>
+  </body>
+</html>

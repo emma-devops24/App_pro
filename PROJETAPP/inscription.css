@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #ffb400, #e5a100, #ff6f91);
+    justify-content: center;
+    align-items: center;
+    
+}
+.fa-address-card{
+    margin-left: 250px;
+    font-size: 80px;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 10px;
+    
+}
+
+.inscription{
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    width: 50%;
+    box-shadow: 4px 8px 10px #000;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-left: 320px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+label{
+    font-size: 20px;
+    margin-left: 60px;
+}
+
+input{
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 60px;
+    outline: none;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+input:focus{
+    border-color: aqua;
+    box-shadow: 0 0 5px aqua;
+}
+
+input::placeholder{
+    font-size: 20px;
+}
+
+.fa-square-envelope, .fa-lock, .fa-lock-open, .fa-mobile-screen{
+    margin-left:-50px;
+    font-size: 20px;
+    top: 25%;
+}
+
+.fa-square-envelope:hover, .fa-lock:hover, .fa-lock-open:hover, .fa-mobile-screen:hover{
+    cursor: pointer;
+    color: rgb(17, 0, 255);
+    background-color: #fff;
+    box-shadow: 0 0 5px rgb(17, 0, 200);
+    transition: 0.2s;
+    transform: scale(1.1);
+
+}
+
+select{
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-bottom: 10px;
+}
+
+select option{
+    font-size: 15px;
+}
+
+select:focus{
+    border-color: aqua;
+    box-shadow: 0 0 5px;
+    outline: none;
+}
+
+#button{
+   width: 80%;
+    padding: 10px;
+    font-size: 20px;
+    margin-left: 60px;
+    background: #5A2D82;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#button:hover{
+    cursor: pointer;
+    background-color: #0d8ecf;
+    color: #fff;
+    transform: translateY(-3px);
+    border-color: #0d8ecf;
+    box-shadow: 6px 6px 20px rgba(13, 142, 207, 0.4);
+}
