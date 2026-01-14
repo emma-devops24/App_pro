@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Restaurant UIYA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'poppins', sans-serif;
+      font-weight: 400;
+    }
+
+    body{
+      font-family: 'poppins', sans-serif;
+      background-color: white;
+      margin: auto;
+    }
+
+    /* Navigation styles */
+    nav{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: fixed;
+      right: 0;
+      left: 0;
+      background: white;
+      box-shadow: 0 8px 10px rgba(218, 144, 7, 0.986);
+      z-index: 1000;
+      width: 100%;
+      height: 90px;
+      margin-top: -120px;
+
+    }
+
+    nav .container img{
+      width: 200px;
+      cursor: pointer;
+      margin: 4px;
+    }
+
+    nav ul{
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li{
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a{
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      font-size: 17px;
+      transition: 0.1s;
+    }
+
+    nav ul li a::after{
+      content: '';
+      width: 0;
+      height: 2px;
+      background:rgba(65, 6, 55, 0.986);
+      display: block;
+      transition: 0.2s ;
+    }
+
+    nav ul li a:hover::after{
+      width: 100%;
+    }
+        
+    nav ul li a:hover{
+      color: rgba(65, 6, 55, 0.986);
+    }
+
+    nav .lien a{
+      text-decoration: none;
+      color: #000;
+      font-family: 'poppins',sans-serif;
+      margin-left: 30px;
+      padding: 12px 24px;
+      border-radius: 2px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: 0.3s;
+      background: #FFB400;
+      color: rgb(49, 3, 49);
+    }
+
+    nav .lien a:hover{
+      background: #e5a100;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #333;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Section À propos */
+    .about-section {
+      margin-top: 120px;
+      padding: 60px 5%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .about-header h1 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .about-header h1 span {
+      color: #FFB400;
+    }
+
+    .about-header p {
+      font-size: 18px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .about-text h2 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .about-image {
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 30px 20px;
+      background: #f9f9f9;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature i {
+      font-size: 48px;
+      color: #FFB400;
+      margin-bottom: 20px;
+    }
+
+    .feature h3 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .team-section {
+      background: #f5f5f5;
+      padding: 80px 5%;
+      margin-top: 80px;
+    }
+
+    .team-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .team-header h2 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .team-member {
+      background: white;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
+
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .team-member h4 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .team-member p {
+      color: #FFB400;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .team-member .description {
+      color: #666;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      padding: 30px 0 0 20px;
+      background: #eeeeee;
+      margin-top: 0;
+    }
+
+    footer .footer_main {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    footer .footer_main .footer_tag {
+      text-align: center;
+    }
+
+    footer .footer_main .footer_tag h2 {
+      color: #000;
+      margin-bottom: 25px;
+      font-size: 30px;
+    }
+
+    footer .footer_main .footer_tag p {
+      margin: 10px 0;
+    }
+
+    footer .footer_main .footer_tag i {
+      color: #fac031;
+      margin: 0 5px;
+    }
+
+    footer .end {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    footer .end span {
+      color: #e5a100;
+      margin-left: 10px;
+    }
+
+    /* Media queries pour responsive */
+    @media screen and (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+      }
+      
+      nav .container img {
+        width: 150px;
+      }
+      
+      nav ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      nav ul.active {
+        display: flex;
+      }
+      
+      nav ul li {
+        margin: 10px 0;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      .about-section {
+        margin-top: 150px;
+        padding: 40px 3%;
+      }
+      
+      .about-header h1 {
+        font-size: 28px;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .about-text h2 {
+        font-size: 24px;
+      }
+      
+      .features {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .team-section {
+        padding: 60px 3%;
+      }
+      
+      footer .footer_main {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .about-section {
+        margin-top: 130px;
+        padding: 30px 2%;
+      }
+      
+      .about-header h1 {
+        font-size: 24px;
+      }
+      
+      .about-header p {
+        font-size: 16px;
+      }
+      
+      .team-section {
+        padding: 40px 2%;
+      }
+      
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      footer .footer_main {
+        grid-template-columns: 1fr;
+      }
+      
+      footer .footer_main .footer_tag {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+    }
+
+</style>
+
+<body>
+    <section>
+        <nav>
+            <div class="header">
+                <div class="container">
+                    <img src="logo.png" alt="png">
+                </div>
+            </div>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul id="navMenu">
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="menus.html">Menus</a></li>
+                <li><a href="propos.html">À propos</a></li>
+                <li><a href="profil.html">Profil</a></li>
+            </ul>
+        
+            <div class="lien">
+                <a href="reservation.html">Réservation</a>
+            </div>
+        </nav>
+    </section>
+
+    <section class="about-section">
+        <div class="about-header">
+            <h1><span>À</span> propos de nous</h1>
+            <p>Découvrez l'histoire et les valeurs qui font de notre restaurant un lieu unique où tradition culinaire et innovation se rencontrent.</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Notre Histoire</h2>
+                <p>Depuis notre création, le Restaurant UIYA s'est engagé à offrir une expérience culinaire exceptionnelle. Situé au cœur de Yamoussoukro, nous combinons les saveurs traditionnelles ivoiriennes avec des techniques modernes.</p>
+                
+                <p>Notre équipe de chefs passionnés sélectionne minutieusement les meilleurs ingrédients locaux pour créer des plats qui racontent une histoire et éveillent tous vos sens.</p>
+                
+                <p>Nous croyons que chaque repas devrait être une célébration, un moment de partage et de découverte gustative.</p>
+            </div>
+            
+            <div class="about-image">
+                <img src="image3.jpg" alt="Notre restaurant">
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-utensils"></i>
+                <h3>Cuisine Authentique</h3>
+                <p>Des plats préparés avec des recettes traditionnelles et des ingrédients frais de qualité supérieure.</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-heart"></i>
+                <h3>Passion</h3>
+                <p>Chaque plat est préparé avec amour et passion par nos chefs expérimentés.</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-clock"></i>
+                <h3>Service Rapide</h3>
+                <p>Un service efficace et attentionné pour une expérience client optimale.</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-leaf"></i>
+                <h3>Ingrédients Frais</h3>
+                <p>Nous utilisons uniquement des ingrédients frais et locaux pour garantir la qualité.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="team-header">
+            <h2>Notre Équipe</h2>
+            <p>Rencontrez les personnes qui donnent vie à votre expérience culinaire</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="image4.jpg" alt="Chef principal">
+                <h4>Chef Emmanuel</h4>
+                <p>Chef Principal</p>
+                <p class="description">Expert en cuisine ivoirienne avec 15 ans d'expérience dans la gastronomie.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="image5.jpg" alt="Sous-chef">
+                <h4>Chef Marie</h4>
+                <p>Sous-Chef</p>
+                <p class="description">Spécialiste des desserts et pâtisseries, apporte une touche créative à nos créations.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="image2.jpg" alt="Manager">
+                <h4>Adjoua Koffi</h4>
+                <p>Manager</p>
+                <p class="description">Assure la coordination parfaite entre cuisine et service pour votre satisfaction.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer_main">
+            <div class="footer_tag">
+                <h2>Localisation</h2>
+                <p>Côte d'Ivoire</p>
+                <p>Yamoussoukro</p>
+                <p>227_Logements</p>
+                <p>UIYA</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Quick Link</h2>
+                <p>Accueil</p>
+                <p>Menus</p>
+                <p>À Propos</p>
+                <p>Profil</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Contact</h2>
+                <p>+225 07-07-87-54-97</p>
+                <p>+225 05-05-78-55-99</p>
+                <p>emmanuela24@gmail.com</p>
+                <p>food_uiya@gmail.com</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Nos Services</h2>
+                <p>Fast Delivery</p>
+                <p>Paiement Facile</p>
+                <p>24 x 7 Services</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Followers</h2>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+        </div>
+
+     <p class="end">Design by <span><i class="fa-solid fa-face-grin"></i>Emma Design</span></p>
+    </footer>
+
+    <script>
+    function toggleMenu() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('active');
+    }
+
+    // Fermer le menu quand on clique sur un lien
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation - Restaurant UIYA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'poppins', sans-serif;
+      font-weight: 400;
+    }
+
+    body{
+      font-family: 'poppins', sans-serif;
+      background-color: white;
+      margin: auto;
+    }
+
+    /* Navigation styles */
+    nav{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: fixed;
+      right: 0;
+      left: 0;
+      background: white;
+      box-shadow: 0 8px 10px rgba(218, 144, 7, 0.986);
+      z-index: 1000;
+      width: 100%;
+      height: 90px;
+      margin-top: -120px;
+    }
+
+    nav .container img{
+      width: 200px;
+      cursor: pointer;
+      margin: 4px;
+    }
+
+    nav ul{
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li{
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a{
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      font-size: 17px;
+      transition: 0.1s;
+    }
+
+    nav ul li a::after{
+      content: '';
+      width: 0;
+      height: 2px;
+      background:rgba(65, 6, 55, 0.986);
+      display: block;
+      transition: 0.2s ;
+    }
+
+    nav ul li a:hover::after{
+      width: 100%;
+    }
+        
+    nav ul li a:hover{
+      color: rgba(65, 6, 55, 0.986);
+    }
+
+    nav .lien a{
+      text-decoration: none;
+      color: #000;
+      font-family: 'poppins',sans-serif;
+      margin-left: 30px;
+      padding: 12px 24px;
+      border-radius: 2px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: 0.3s;
+      background: #FFB400;
+      color: rgb(49, 3, 49);
+    }
+
+    nav .lien a:hover{
+      background: #e5a100;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #333;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Section réservation */
+    .reservation-section {
+      margin-top: 120px;
+      padding: 60px 5%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .reservation-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .reservation-header h1 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .reservation-header h1 span {
+      color: #FFB400;
+    }
+
+    .reservation-header p {
+      font-size: 18px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .reservation-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .reservation-form {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .reservation-form h2 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #eee;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: 'poppins', sans-serif;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #FFB400;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+      display: inline-block;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    .btn-yellow {
+      background: #FFB400;
+      color: #fff;
+    }
+
+    .btn-yellow:hover {
+      background: #e5a100;
+      transform: translateY(-2px);
+    }
+
+    .reservation-info {
+      background: #f9f9f9;
+      padding: 40px;
+      border-radius: 15px;
+    }
+
+    .info-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .info-card h3 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card i {
+      color: #FFB400;
+      font-size: 24px;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-card ul li {
+      padding: 8px 0;
+      color: #666;
+      border-bottom: 1px solid #eee;
+    }
+
+    .info-card ul li:last-child {
+      border-bottom: none;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .contact-info i {
+      font-size: 20px;
+      color: #FFB400;
+      width: 25px;
+    }
+
+    .special-offers {
+      background: linear-gradient(135deg, #FFB400, #e5a100);
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .special-offers h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .special-offers p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Success message */
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      padding: 30px 0 0 20px;
+      background: #eeeeee;
+      margin-top: 80px;
+    }
+
+    footer .footer_main {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    footer .footer_main .footer_tag {
+      text-align: center;
+    }
+
+    footer .footer_main .footer_tag h2 {
+      color: #000;
+      margin-bottom: 25px;
+      font-size: 30px;
+    }
+
+    footer .footer_main .footer_tag p {
+      margin: 10px 0;
+    }
+
+    footer .footer_main .footer_tag i {
+      color: rgba(218, 144, 7, 0.986);
+      margin: 0 5px;
+    }
+
+    footer .end {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    footer .end span {
+      color: #e5a100;
+      margin-left: 10px;
+    }
+
+    /* Media queries pour responsive */
+    @media screen and (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+        
+      }
+      
+      nav .container img {
+        width: 150px;
+      }
+      
+      nav ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      nav ul.active {
+        display: flex;
+      }
+      
+      nav ul li {
+        margin: 10px 0;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      .reservation-section {
+        margin-top: 150px;
+        padding: 40px 3%;
+      }
+      
+      .reservation-header h1 {
+        font-size: 28px;
+      }
+      
+      .reservation-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .reservation-form, .reservation-info {
+        padding: 30px 20px;
+      }
+      
+      footer .footer_main {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .reservation-section {
+        margin-top: 130px;
+        padding: 30px 2%;
+      }
+      
+      .reservation-header h1 {
+        font-size: 24px;
+      }
+      
+      .reservation-header p {
+        font-size: 16px;
+      }
+      
+      .reservation-form, .reservation-info {
+        padding: 20px 15px;
+      }
+      
+      .info-card {
+        padding: 20px;
+      }
+      
+      footer .footer_main {
+        grid-template-columns: 1fr;
+      }
+      
+      footer .footer_main .footer_tag {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+    }
+
+</style>
+
+<body>
+    <section>
+        <nav>
+            <div class="header">
+                <div class="container">
+                    <img src="logo.png" alt="png">
+                </div>
+            </div>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul id="navMenu">
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="menus.html">Menus</a></li>
+                <li><a href="propos.html">À propos</a></li>
+                <li><a href="profil.html">Profil</a></li>
+            </ul>
+        
+            <div class="lien">
+                <a href="reservation.html">Réservation</a>
+            </div>
+        </nav>
+    </section>
+
+    <section class="reservation-section">
+        <div class="reservation-header">
+            <h1>Réserver <span>vos plats</span></h1>
+            <p>Réservez votre plat dès maintenant et vivez une expérience culinaire inoubliable au Restaurant UIYA.</p>
+        </div>
+
+        <div class="reservation-container">
+            <div class="reservation-form">
+                <h2>Formulaire de réservation</h2>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Votre réservation a été enregistrée avec succès !
+                </div>
+                
+                <form id="reservationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Prénom *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Nom *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Téléphone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Date *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Heure *</label>
+                            <select id="time" name="time" required>
+                                <option value="">Choisir l'heure</option>
+                                <option value="11:30">11h30</option>
+                                <option value="12:00">12h00</option>
+                                <option value="12:30">12h30</option>
+                                <option value="13:00">13h00</option>
+                                <option value="13:30">13h30</option>
+                                <option value="19:00">19h00</option>
+                                <option value="19:30">19h30</option>
+                                <option value="20:00">20h00</option>
+                                <option value="20:30">20h30</option>
+                                <option value="21:00">21h00</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guests">Nombre de personnes *</label>
+                            <select id="guests" name="guests" required>
+                                <option value="">Choisir</option>
+                                <option value="1">1 personne</option>
+                                <option value="2">2 personnes</option>
+                                <option value="3">3 personnes</option>
+                                <option value="4">4 personnes</option>
+                                <option value="5">5 personnes</option>
+                                <option value="6">6 personnes</option>
+                                <option value="7+">7+ personnes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="occasion">Occasion</label>
+                            <select id="occasion" name="occasion">
+                                <option value="">Autre</option>
+                                <option value="anniversaire">Anniversaire</option>
+                                <option value="business">Rendez-vous d'affaires</option>
+                                <option value="romantique">Dîner romantique</option>
+                                <option value="famille">Repas de famille</option>
+                                <option value="celebration">Célébration</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <!-- <label for="requests">Demandes spéciales</label> -->
+                        <!-- <textarea id="requests" name="requests" placeholder="Allergies, préférences alimentaires, demandes particulières..."></textarea> -->
+
+                        <label for="Choix du Plat">Choix du Plat</label>
+                            <select id="Choisir" name="Choisir">
+                                <option value="">-- Selectionnez votre plat --</option>
+                                <option value="Attiéké Poisson de Wife">Attiéké Poisson de Wife</option>
+                                <option value="Alloco">Alloco</option>
+                                <option value="Garba">Garba</option>
+                                <option value="Poisson Braisé"></option>
+                                <option value="Poulet Braisé">Poulet Braisé</option>
+                                <option value="Poulet Mayo">Poulet Mayo</option>
+                                <option value="Riz Marcédoine">Riz Marcédoine</option>
+                                <option value="Soupe de Carpe">Soupe de Carpe</option>
+                                <option value="Spaguetti">Spaguetti</option>
+                                <option value="Tchep poisson">Tchep Poisson</option>
+                                <option value="Tchep Poulet">Tchep Poulet</option>
+                            </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-yellow">
+                        <i class="fas fa-calendar-check"></i> Confirmer la réservation
+                    </button>
+                </form>
+            </div>
+
+            <div class="reservation-info">
+                <div class="info-card">
+                    <h3><i class="fas fa-clock"></i>Horaires d'ouverture</h3>
+                    <ul>
+                        <li><strong>Lundi - Jeudi:</strong> 11h30 - 14h30, 18h30 - 22h30</li>
+                        <li><strong>Vendredi - Samedi:</strong> 11h30 - 14h30, 18h30 - 23h00</li>
+                        <li><strong>Dimanche:</strong> 11h30 - 15h00, 18h30 - 22h00</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle"></i>Informations importantes</h3>
+                    <ul>
+                        <li>Réservation recommandée, surtout le week-end</li>
+                        <li>Confirmation par SMS ou email</li>
+                        <li>Annulation gratuite jusqu'à 2h avant</li>
+                        <li>Tables tenues pendant 15 minutes maximum</li>
+                        <li>Groupes de 8+ personnes: nous contacter</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-phone"></i>Contact</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+225 07-07-87-54-97</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>food_uiya@gmail.com</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>227_Logements, UIYA<br>Yamoussoukro, Côte d'Ivoire</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="special-offers">
+            <h3>🎉 Offres spéciales</h3>
+            <p><strong>Menu Déjeuner:</strong> Du lundi au vendredi, profitez de notre menu spécial à prix réduit de 11h30 à 14h30.<br>
+            <strong>Happy Hour:</strong> Tous les vendredis de 18h30 à 20h00, -20% sur les boissons.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer_main">
+            <div class="footer_tag">
+                <h2>Localisation</h2>
+                <p>Côte d'Ivoire</p>
+                <p>Yamoussoukro</p>
+                <p>227_Logements</p>
+                <p>UIYA</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Quick Link</h2>
+                <p>Accueil</p>
+                <p>Menus</p>
+                <p>À Propos</p>
+                <p>Profil</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Contact</h2>
+                <p>+225 07-07-87-54-97</p>
+                <p>+225 05-05-78-55-99</p>
+                <p>emmanuela24@gmail.com</p>
+                <p>food_uiya@gmail.com</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Nos Services</h2>
+                <p>Fast Delivery</p>
+                <p>Paiement Facile</p>
+                <p>24 x 7 Services</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Followers</h2>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+        </div>
+
+     <p class="end">Design by <span><i class="fa-solid fa-face-grin"></i>Emma Design</span></p>
+    </footer>
+
+    <script>
+    function toggleMenu() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('active');
+    }
+
+    // Fermer le menu quand on clique sur un lien
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+
+    // Gestion du formulaire de réservation
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Simulation d'envoi de formulaire
+        const successMessage = document.getElementById('successMessage');
+        successMessage.classList.add('show');
+        
+        // Réinitialiser le formulaire
+        this.reset();
+        
+        // Faire défiler vers le message de succès
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Cacher le message après 5 secondes
+        setTimeout(() => {
+            successMessage.classList.remove('show');
+        }, 5000);
+    });
+
+    // Définir la date minimale à aujourd'hui
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('date').setAttribute('min', today);
+    </script>
+
+</body>
+</html>
