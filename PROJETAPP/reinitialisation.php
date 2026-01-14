@@ -1,5 +1,5 @@
 <?php
-$conn = new PDO("mysql:host=localhost;dbname=projetapp", "root", "");
+$conn = new PDO("mysql:host=localhost;dbname=app_pro", "root", "");
 if (!$conn) {
     die("Connection failed.");
 }

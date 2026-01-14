@@ -1,10 +1,11 @@
 <?php
+session_start();
 $message = "";
 $type = "";
 
 // Connexion BD
 try {
-    $conn = new PDO("mysql:host=localhost;dbname=projetapp;charset=utf8mb4", "root", "");
+    $conn = new PDO("mysql:host=localhost;dbname=app_pro;charset=utf8mb4", "root", "");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Erreur de connexion: " . $e->getMessage());
@@ -54,6 +55,7 @@ if (isset($_POST['button'])) {
 
             $message = "BIENVENUE SUR NOTRE PAGE, QUE COMMANDER VOUS : " . htmlspecialchars($user['Nom']) . " " . htmlspecialchars($user['Prenom']);
             $type = "success";
+            
 
             /* --- Gestion du token si "Se souvenir" est coché --- */
             if ($souvenir) {
@@ -69,7 +71,6 @@ if (isset($_POST['button'])) {
                     ':token_hash' => $token_hash,
                     ':email'      => $email
                 ]);
-
                 // Cookie pour stocker le token côté client (30 jours)
                 setcookie('usertoken', $token, time() + 60, "/", "", false, true);
 /*
@@ -84,6 +85,8 @@ time() + 604800    // 1 semaine (7 jours)
 time() + 2592000   // 30 jours
 */
             }
+            // Stocker l'ID utilisateur en session
+                $_SESSION['user_id'] = $user['idetudiant'];
             header("Location: App_pro/accueil.html?message=" . rawurlencode($message) . "&type=" . urlencode($type));
             exit();
         } else {
