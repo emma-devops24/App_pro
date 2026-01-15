@@ -28,7 +28,7 @@ try {
     if ($user) {
         $message = "BIENVENUE SUR NOTRE PAGE, QUE COMMANDER VOUS : " . htmlspecialchars($user['Nom']) . " " . htmlspecialchars($user['Prenom']);
         $type = "success";
-        header("Location: App_pro/accueil.html?message=" . rawurlencode($message) . "&type=" . urlencode($type));
+        header("Location: ../accueil.html?message=" . rawurlencode($message) . "&type=" . urlencode($type));
         exit();
     }
 }
@@ -87,7 +87,7 @@ time() + 2592000   // 30 jours
             }
             // Stocker l'ID utilisateur en session
                 $_SESSION['user_id'] = $user['idetudiant'];
-            header("Location: App_pro/accueil.html?message=" . rawurlencode($message) . "&type=" . urlencode($type));
+            header("Location: ../accueil.html?message=" . rawurlencode($message) . "&type=" . urlencode($type));
             exit();
         } else {
             $message = "Mot de passe incorrect !";
