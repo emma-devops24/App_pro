@@ -28,7 +28,7 @@ try {
     if ($user) {
         $message = "BIENVENUE SUR NOTRE PAGE, QUE COMMANDER VOUS : " . htmlspecialchars($user['Nom']) . " " . htmlspecialchars($user['Prenom']);
         $type = "success";
-        header("Location: ../accueil.html?message=" . rawurlencode($message) . "&type=" . urlencode($type));
+        header("Location: ../../accueil.html?message=" . rawurlencode($message) . "&type=" . urlencode($type));
         exit();
     }
 }
@@ -87,7 +87,7 @@ time() + 2592000   // 30 jours
             }
             // Stocker l'ID utilisateur en session
                 $_SESSION['user_id'] = $user['idetudiant'];
-            header("Location: ../accueil.html?message=" . rawurlencode($message) . "&type=" . urlencode($type));
+            header("Location: ../../accueil.html?message=" . rawurlencode($message) . "&type=" . urlencode($type));
             exit();
         } else {
             $message = "Mot de passe incorrect !";
@@ -115,8 +115,8 @@ if (isset($_GET['message']) && isset($_GET['type'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width , initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
-    <link rel="stylesheet" href="connexion.css">
-    <script src="icon.js"></script>
+    <link rel="stylesheet" href="../css/connexion.css">
+    <script src="../js/icon.js"></script>
     <title>CONNEXION</title>
 </head>
 <body>
@@ -139,7 +139,7 @@ if (isset($_GET['message']) && isset($_GET['type'])) {
     </section>
     <section class="conteneur">
         <div id="image">
-            <img src="IMAGE/image(20).jpeg" alt="">
+            <img src="../IMAGE/image(20).jpeg" alt="">
         </div>
         <p id="uiya"><strong>Restaurant UIYA</strong></p>
         <p id="uiya1">Connecter vous à votre espace</p>

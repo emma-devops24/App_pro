@@ -85,7 +85,7 @@ if (isset($_POST['boutton'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="verifieremail.css">
+    <link rel="stylesheet" href="../css/verifieremail.css">
     <title>Vérification Email</title>
 </head>
 <body>

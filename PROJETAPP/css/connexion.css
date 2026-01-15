@@ -5,14 +5,14 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background: linear-gradient(135deg, #eca90e, #c1e532, #ff6f91);
+    background: linear-gradient(135deg, orange, #ffb300, rgb(235, 235, 11));
     min-height: 100vh;
     display: grid;
     justify-content: center;
     align-items: center;
     padding: 20px;
     background-size: 400% 400%;
-    
+    animation: gradientShift 10s ease infinite;
 }
 @keyframes gradientShift {
   0% {

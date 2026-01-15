@@ -1,7 +1,8 @@
 <?php
 $conn = new PDO("mysql:host=localhost;dbname=app_pro", "root", "");
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if (!$conn) {
-    die("Connection failed.");
+    die("Erreur de connexion à la base de données.");
 }
 if (isset($_POST['boutton'])) {
 $email = $_POST['Email'];

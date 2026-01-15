@@ -9,6 +9,18 @@ body{
     background: linear-gradient(135deg, #ffb400, #e5a100, #ff6f91);
     justify-content: center;
     align-items: center;
+    animation: couleurShift 10s ease infinite;
+}
+@keyframes couleurShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
     
 }
 .fa-address-card{
@@ -98,7 +110,8 @@ select:focus{
     padding: 10px;
     font-size: 20px;
     margin-left: 60px;
-    background: #5A2D82;
+    background: #149ddd;
+    color: #fff;
     border-radius: 10px;
     border: none;
     cursor: pointer;

@@ -46,7 +46,7 @@ if (isset($_SESSION['user_id'])) {
                 <li><a href="accueil.html">Accueil</a></li>
                 <li><a href="menus.html">Menus</a></li>
                 <li><a href="propos.html">À propos</a></li>
-                <li><a href="PROJETAPP/profil.php">Profil</a></li>
+                <li><a href="profil.php">Profil</a></li>
             </ul>
         
             <div class="lien">
@@ -65,7 +65,7 @@ if (isset($_SESSION['user_id'])) {
                 <div class="profile-avatar">
                     <i class="fas fa-user"></i>
                 </div>
-                <h2>Jean Dupont</h2>
+                <h2><?= htmlspecialchars($user['Nom'])." ".htmlspecialchars($user['Prenom']) ?></h2>
                 <p>Client fidèle depuis 2023</p>
                 <button class="btn btn-yellow">Modifier le profil</button>
             </div>
