@@ -6,10 +6,19 @@
     <title>Ma page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+
+   <!--google web fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
    <!-----Bootstrap & Custom css-->
     
-    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/foodhut.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!--Template stylesheet-->
+
+       <link rel="stylesheet" href="css/style.css">
+
 
   </head>
 
@@ -17,12 +26,8 @@
   
 <style>
 
-  :root{
-
-     --primary: #e5a100;
-     --light:white;
-     --dark:rgb(63, 6, 80);
-  }
+ 
+  
 
   *{
     margin: 0;
@@ -155,12 +160,10 @@
       background-color: rgba(20, 19, 19, 0.76);
       position: relative;
       overflow: hidden;
-      background-image: url(image8.jpg);
+      background-image: url(image26.jpg);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      fil      
-
       
     }
 
@@ -323,7 +326,32 @@
       color: #666;
       line-height: 1.6;
     }
-    
+
+    .menus--xxl py-5 {
+
+     
+
+    }
+
+    .menus--xxl py-5 .text-center wow fadeInpu{
+
+
+      
+
+
+    }
+
+    .section-title ff-secondary text-center text-primary{
+      
+    }
+    .d-flex align-items-center img{
+        margin: 250px;
+        padding: 50px;
+        display: block;
+        justify-content: center;
+    }
+
+
     .team-section {
       background: #f5f5f5;
       padding: 80px 5%;
@@ -707,6 +735,127 @@
             </div>
         </div>
 
+
+    
+    <!---Menu section --->
+
+    <div class="menus--xxl py-5">
+      <div class="menus">
+        <div class="text-center wow fadeInpu">
+          <h5 class="section-title ff-secondary text-center text-primary">
+            food Menu 
+          </h5>
+
+          <h1 class="mb-5"> Article le plus populaire</h1>
+        </div> 
+
+        <div class="tab-class text-center wow fadeInput" data-wow-delay="0.1s">
+          <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+
+            <li class="nav-item">
+
+              <a href="" class="d-flex align-items-center text-start mx-3 pb-3">
+
+                <i class="fa fa-hamburger fa-2x text-primary"></i>
+
+                <div class="ps-3">
+
+                  <small class="text-body">Special</small>
+
+                  <h6 class="mt-n1 mb-0">Launch</h6>
+
+                </div>
+              </a>
+            </li>
+
+            <li class="nav-item">
+
+              <a href="" class="d-flex align-items-center text-start mx-3 pb-3">
+
+                <i class="fa fa-utensils fa-2x text-primary"></i>
+
+                <div class="ps-3">
+
+                  <small class="text-body">Lovely</small>
+
+                  <h6 class="mt-n1 mb-0">Dinner</h6>
+
+                </div>
+              </a>
+            </li>
+
+          </ul>
+
+          <div class="teb-content">
+            <div class="tab-pane fade show p-0 active">
+              <div class="row g-4">
+                <div class="col-lg-6">
+                  <div class="d-flex align-items-center">
+                    <img src="image9.jpg" class="flex-shrink-0 img-fluid rounded" alt="jpg">
+                    <div class="w-100 d-flex flex-colum text-start ps-4">
+                      <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>Poulet braisé</span>
+                        <span class="text-primary"> 1000 fcfa</span>
+                      </h5>
+                      <small class="fst-italic">
+                        Délicieux plat à savourer bien chaud.
+                      </small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="d-flex align-items-center">
+                    <img src="image2.jpg" class="flex-shrink-0 img-fluid rounded" alt="jpg">
+                    <div class="w-100 d-flex flex-colum text-start ps-4">
+                      <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>Tchep Poisson</span>
+                        <span class="text-primary"> 500 fcfa</span>
+                      </h5>
+                      <small class="fst-italic">
+                        Délicieux plat à savourer bien chaud.
+                      </small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="d-flex align-items-center">
+                    <img src="image5.jpg" class="flex-shrink-0 img-fluid rounded" alt="jpg">
+                    <div class="w-100 d-flex flex-colum text-start ps-4">
+                      <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>Garba</span>
+                        <span class="text-primary"> 500 fcfa</span>
+                      </h5>
+                      <small class="fst-italic">
+                        Délicieux plat à savourer bien chaud.
+                      </small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="d-flex align-items-center">
+                    <img src="image3.jpg" class="flex-shrink-0 img-fluid rounded" alt="jpg">
+                    <div class="w-100 d-flex flex-colum text-start ps-4">
+                      <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>Spaghetti</span>
+                        <span class="text-primary"> 500 fcfa</span>
+                      </h5>
+                      <small class="fst-italic">
+                        Délicieux plat à savourer bien chaud.
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
 
         
   
