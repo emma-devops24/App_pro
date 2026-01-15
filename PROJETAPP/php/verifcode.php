@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $conn = new PDO("mysql:host=localhost;dbname=projetapp", "root", "");
+    $conn = new PDO("mysql:host=localhost;dbname=app_pro", "root", "");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());

@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 
 // Connexion à la base de données
 try {
-    $conn = new PDO("mysql:host=localhost;dbname=projetapp", "root", "");
+    $conn = new PDO("mysql:host=localhost;dbname=app_pro", "root", "");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
@@ -85,7 +85,7 @@ if (isset($_POST['boutton'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="verifieremail.css">
+    <link rel="stylesheet" href="../css/verifieremail.css">
     <title>Vérification Email</title>
 </head>
 <body>
