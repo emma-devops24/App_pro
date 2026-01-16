@@ -1,0 +1,469 @@
+*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'poppins', sans-serif;
+      font-weight: 400;
+    }
+
+    body{
+      font-family: 'poppins', sans-serif;
+      background-color: white;
+      margin: auto;
+    }
+
+    /* Navigation styles */
+    nav{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: fixed;
+      right: 0;
+      left: 0;
+      background: white;
+      box-shadow: 0 8px 10px rgba(218, 144, 7, 0.986);
+      z-index: 1000;
+      width: 100%;
+      height: 90px;
+       margin-top: -120px;
+
+    }
+
+    nav .container img{
+      width: 200px;
+      cursor: pointer;
+      margin: 4px;
+    }
+
+    nav ul{
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li{
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a{
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      font-size: 17px;
+      transition: 0.1s;
+    }
+
+    nav ul li a::after{
+      content: '';
+      width: 0;
+      height: 2px;
+      background:rgba(65, 6, 55, 0.986);
+      display: block;
+      transition: 0.2s ;
+    }
+
+    nav ul li a:hover::after{
+      width: 100%;
+    }
+        
+    nav ul li a:hover{
+      color: rgba(65, 6, 55, 0.986);
+    }
+
+    nav .lien a{
+      text-decoration: none;
+      color: #000;
+      font-family: 'poppins',sans-serif;
+      margin-left: 30px;
+      padding: 12px 24px;
+      border-radius: 2px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: 0.3s;
+      background: #FFB400;
+      color: rgb(49, 3, 49);
+    }
+
+    nav .lien a:hover{
+      background: #e5a100;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #333;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Section profil */
+    .profile-section {
+      margin-top: 120px;
+      padding: 60px 5%;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .profile-header h1 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .profile-header h1 span {
+      color: #FFB400;
+    }
+
+    .profile-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .profile-card {
+      background: #f9f9f9;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .profile-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      background: #FFB400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      color: white;
+    }
+
+    .profile-card h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .profile-card p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 2px;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+      display: inline-block;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-yellow {
+      background: #FFB400;
+      color: #fff;
+    }
+
+    .btn-yellow:hover {
+      background: #e5a100;
+    }
+
+    .profile-info {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .info-section {
+      margin-bottom: 30px;
+    }
+
+    .info-section h3 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #FFB400;
+      padding-bottom: 10px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-weight: 500;
+      color: #333;
+    }
+
+    .info-value {
+      color: #666;
+    }
+
+    .preferences-section {
+      margin-top: 50px;
+    }
+
+    .preferences-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .preference-card {
+      background: #f9f9f9;
+      padding: 30px 20px;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .preference-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .preference-card i {
+      font-size: 40px;
+      color: #FFB400;
+      margin-bottom: 15px;
+    }
+
+    .preference-card h4 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .preference-card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .orders-section {
+      margin-top: 50px;
+      background: #f5f5f5;
+      padding: 40px;
+      border-radius: 15px;
+    }
+
+    .orders-section h3 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .order-item {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .order-info h4 {
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .order-info p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .order-status {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .status-completed {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .status-pending {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      padding: 30px 0 0 20px;
+      background: #eeeeee;
+      margin-top: 50px;
+    }
+
+    footer .footer_main {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    footer .footer_main .footer_tag {
+      text-align: center;
+    }
+
+    footer .footer_main .footer_tag h2 {
+      color: #000;
+      margin-bottom: 25px;
+      font-size: 30px;
+    }
+
+    footer .footer_main .footer_tag p {
+      margin: 10px 0;
+    }
+
+    footer .footer_main .footer_tag i {
+      color: #fac031;
+      margin: 0 5px;
+    }
+
+    footer .end {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    footer .end span {
+      color: #e5a100;
+      margin-left: 10px;
+    }
+
+    /* Media queries pour responsive */
+    @media screen and (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+      }
+      
+      nav .container img {
+        width: 150px;
+      }
+      
+      nav ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      nav ul.active {
+        display: flex;
+      }
+      
+      nav ul li {
+        margin: 10px 0;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      .profile-section {
+        margin-top: 150px;
+        padding: 40px 3%;
+      }
+      
+      .profile-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .profile-card {
+        padding: 30px 20px;
+      }
+      
+      .profile-avatar {
+        width: 120px;
+        height: 120px;
+        font-size: 50px;
+      }
+      
+      .preferences-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .order-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      
+      footer .footer_main {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .profile-section {
+        margin-top: 130px;
+        padding: 30px 2%;
+      }
+      
+      .profile-card, .profile-info, .orders-section {
+        padding: 20px 15px;
+      }
+      
+      .profile-header h1 {
+        font-size: 24px;
+      }
+      
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
+      }
+      
+      .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+      
+      footer .footer_main {
+        grid-template-columns: 1fr;
+      }
+      
+      footer .footer_main .footer_tag {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+    }
