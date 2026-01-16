@@ -1,23 +1,17 @@
 <?php
 session_start();
-$conn = new PDO("mysql:host=localhost;dbname=app_pro;charset=utf8mb4", "root", "");
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-if(!$conn){
-    die("Erreur de connexion à la base de données.");
-}
+// Connexion BD
+require_once 'PROJETAPP/php/dbconn.php';
 
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $stmt = $conn->prepare("SELECT Nom, Prenom, Email, Contact, Filiere, Niveau FROM information WHERE idetudiant = :id");
     $stmt->execute([':id' => $user_id]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-}else {
-    // L'utilisateur n'est pas connecté, rediriger vers la page de connexion
-    header("Location: PROJETAPP/connexion.php");
-    exit();
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

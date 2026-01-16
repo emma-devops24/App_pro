@@ -6,7 +6,7 @@
 }
 
 body{
-    background: linear-gradient(135deg, #ffb400, #e5a100, #ff6f91);
+    background: linear-gradient(135deg, orange, #ffb300, rgb(235, 235, 11));
     justify-content: center;
     align-items: center;
     animation: couleurShift 10s ease infinite;
@@ -23,6 +23,7 @@ body{
   }
     
 }
+
 .fa-address-card{
     margin-left: 250px;
     font-size: 80px;

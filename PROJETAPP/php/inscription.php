@@ -1,15 +1,10 @@
 <?php 
 session_start();
+// Connexion BD
+require_once 'dbconn.php';
+
 $message = "";
 $type = "";
-
-try {
-    $conn = new PDO("mysql:host=localhost;dbname=app_pro", "root", "");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} 
-catch(PDOException $e){
-    echo "Erreur de connexion: ".$e->getMessage();
-}
 
 if(isset($_POST['btn'])){
 
