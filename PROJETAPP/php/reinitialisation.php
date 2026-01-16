@@ -1,9 +1,7 @@
 <?php
-$conn = new PDO("mysql:host=localhost;dbname=app_pro", "root", "");
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-if (!$conn) {
-    die("Erreur de connexion à la base de données.");
-}
+// Connexion BD
+require_once 'dbconn.php';
+
 if (isset($_POST['boutton'])) {
 $email = $_POST['Email'];
 $password = password_hash($_POST['Motdepasse'], PASSWORD_DEFAULT);
